@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ritest | Full Stack Developer (Fresher)</title>
+
+    <!-- Google Font & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        *{margin:0;padding:0; box-sizing: border-box}
+        body{
+            font-family: 'Poppins', sans-serif;
+            background: #0d0d0d;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        section{
+            min-height: 100vh;
+            padding: 140px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container{
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        /* ===== BACKGROUND ===== */
+        .bg{
+            position: fixed;
+            inset: 0;
+            background: 
+            linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.85)),
+            url('https://images.pexels.com/photos/33637962/pexels-photo-33637962.jpeg'); /* URL OF IMAGE */
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        /* ===== NAV ===== */
+        nav{
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0,0,0,.85);
+            padding: 25px;
+            z-index: 100;
+        }
+
+        nav ul{
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            list-style: none;
+        }
+
+        nav a{
+            color: #fff;
+            font-size: 1.2em;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        nav a:hover{color: #00d4ff;}
+
+        /* ===== HERO ===== */
+        #home{
+            text-align: center;
+        }
+
+        #home h1{
+            font-size: 5em;
+            background: linear-gradient(90deg,#00d4ff,#7f00ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        #home p{
+            font-size: 1.6em;
+            max-width: 900px;
+            margin: 30px auto;
+            line-height: 1.8;
+        }
+
+        .hero-btn{
+            padding: 20px 50px;
+            font-size: 1.2em;
+            background: linear-gradient(90deg,#00d4ff,#7f00ff);
+            border: none;
+            border-radius: 50px;
+            color: #fff;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .social{
+            margin-top: 40px;
+        }
+
+        .social a{
+            font-size: 3em;
+            margin: 0 20px;
+            color: #fff;
+        }
+
+        .social a:hover{color: #00d4ff}
+
+        /* ===== ABOUT ===== */
+        #about{
+            background: rgba(255,255,255,0.05);
+            border-radius: 30px;
+        }
+
+        .about-box{
+            display: flex;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-box img{
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            border: 8px solid #00d4ff;
+        }
+
+        .about-text h2{
+            font-size: 3.5em;
+            margin-bottom: 30px;
+        }
+
+        .about-text p{
+            font-size: 1.3em;
+            line-height: 2;
+        }
+
+        /* ===== SKILLS ===== */
+        #skills h2{
+            font-size: 3.8em;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .skills-grid{
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+            gap: 40px;
+        }
+
+        .skill-card{
+            background: rgba(255,255,255,0.08);
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            transition: .3s;
+        }
+
+        .skill-card:hover{
+            transform: translateY(-15px);
+            box-shadow: 0 0 40px rgba(0,212,255,.4);
+        }
+
+        .skill-card i{
+            font-size: 4em;
+            color: #00d4ff;
+            margin-bottom: 20px;
+        }
+
+        .skill-card h3{
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .skill-card p{
+            font-size: 1.2em;
+        }
+
+        /* ===== PROJECTS ===== */
+        #projects{
+            background: 
+            linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.9)),
+            url('https://images.unsplash.com/photo-1555949963-aa79dcee981c');
+            background-size: cover;
+        }
+
+        #projects h2{
+            font-size: 3.8em;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .projects{
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+            gap: 50px;
+        }
+
+        .project{
+            background: rgba(0,0,0,.7);
+            border-radius: 25px;
+            overflow: hidden;
+            transition: .3s;
+        }
+
+        .project:hover{
+            transform: scale(1.05);
+        }
+
+        .project img{
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .project div{
+            padding: 30px;
+        }
+
+        .project h3{
+            font-size: 2.2em;
+        }
+
+        .project p{
+            font-size: 1.2em;
+            margin-top: 15px;
+        }
+
+        /* ===== CONTACT ===== */
+        #contact{
+            background: rgba(255,255,255,0.05);
+            border-radius: 30px;
+        }
+
+        #contact h2{
+            font-size: 3.5em;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        form{
+            max-width: 800px;
+            margin: auto;
+            display: grid;
+            gap: 30px;
+        }
+
+        input, textarea{
+            padding: 20px;
+            font-size: 1.1em;
+            border-radius: 10px;
+            border: none;
+            background: #222;
+            color: #fff;
+        }
+
+        form button{
+            padding: 20px;
+            font-size: 1.2em;
+            background: linear-gradient(90deg,#00d4ff,#7f00ff);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        /* ===== FOOTER ===== */
+        footer{
+            text-align: center;
+            padding: 30px;
+            background: #000;
+            font-size: 1.1em;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px){
+            section{padding: 120px 25px}
+            #home h1{font-size: 3.5em}
+            .about-box{flex-direction: column; text-align: center}
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="bg"></div>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <div class="container">
+            <h1>Ritesh</h1>
+            <p>Creative and motivated Full Stack Developer (Fresher) with a strong passion for building modern, scalable, and user-centric web applications.</p>
+            <a href="#projects" class="hero-btn">Explore My Projects</a>
+
+            <!-- SOCIAL LINKS -->
+            <div class="social">
+                <a href="https://github.com/Ritesh-2025/" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/ritesh-choudhary-0957bb312/" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:riteshchoudhary7264@gmail.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container about-box">
+            <img src="Ritesh.image.car.png" alt="Profile Picture"><!-- Image for Portfolio -->
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>I am a motivated Full Stack Developer (Fresher) with a strong understanding of front-end and back-end technologies, driven to build scalable digital solutions while continuously learning and improving user experiences.</p>
+                <p>Focused on clean code, responsive design, performance optimization, and continuous growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card"><i class="fab fa-html5"></i><h3>HTML5</h3><p>Semantic, SEO-friendly markup</p></div>
+                <div class="skill-card"><i class="fab fa-css3-alt"></i><h3>CSS3</h3><p>Modern UI, animations & layouts</p></div>
+                <div class="skill-card"><i class="fab fa-js"></i><h3>JavaScript</h3><p>Dynamic & Interactive websites</p></div>
+                <div class="skill-card"><i class="fab fa-react"></i><h3>React</h3><p>Component-based frontend</p></div>
+                <div class="skill-card"><i class="fab fa-node-js"></i><h3>Node.js</h3><p>Backend & APIs</p></div>
+                <div class="skill-card"><i class="fas fa-database"></i><h3>Databases</h3><p>MongoDB & SQL</p></div>
+                <div class="skill-card"><i class="fas fa-microsoft-azure"></i><h3>Microsoft Azure</h3><p>App Deployment & Price Calculating</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects">
+                <div class="project">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3" alt="E-Commerce Website"><!-- Project Image -->
+                    <div><h3>E-Commerce Websites</h3><p>Shopping platform with authentication, cart & payments.</p></div>
+                </div>
+
+                <div class="project">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" alt="Dashboard"><!-- Project Image -->
+                    <div><h3>Dashboard</h3><p>Analytics dashboard with charts.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <form>
+                <input type="text" placeholder="Your Name">
+                <input type="email" placeholder="Your Email">
+                <textarea rows="6" placeholder="Your Message"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        © 2025 Ritesh | Full Stack Developer (Fresher)
+    </footer>
+
+</body>
+</html>
